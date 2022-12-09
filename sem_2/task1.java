@@ -3,37 +3,60 @@
 
 import java.util.Scanner;
 
-public class tas1 {
+public class task1 {
 
     public static void main(String[] args) {
-        char a = '1';
-        char b = '0';
-        System.out.println("Введите  четное целое число: ");
-        Scanner n = new Scanner(System.in);
-        int num = n.nextInt();
+//        String a="aaaaaaaabbbbbbccccccmmmmmcccccccd";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите строку: ");
+        String str = scanner.nextLine();
+        char first = str.charAt(0);
+        int count = 1;
 
-        if (num % 2 != 0) {
-            boolean flag = true;
-            while (flag) {
-                System.out.println("Введите ЧЕТНОЕ целое число: ");
-                int new_num = n.nextInt();
-                if (new_num % 2 == 0) {
-                    flag = false;
-                }
+        StringBuilder res = new StringBuilder();
+        for (int i = 1; i < str.length(); i++) {
+            if (first == str.charAt(i)) {
+                count++;
+            } else {
+                if (count > 0)
+                    res.append(first).append(count);
+                count = 1;
+                first = str.charAt(i);
+            }
         }
+        if (count > 0)
+            res.append(first).append(count);
+        else
+            res.append(first);
+        System.out.println(res);
     }
 
-        StringBuilder answer = new StringBuilder();
-
-        for (int i = 0; i < num; i++) {
-           if (i % 2 == 0) {
-            answer.append(a);
-           } else {
-            answer.append(b);
-           }                     
-
-        }
-        System.out.println(answer);
-        n.close();
-    }
+    // public static void main(String[] args) {
+    //     //        String a="aaaaaaaabbbbbbccccccmmmmmcccccccd";
+    //             Scanner scanner = new Scanner(System.in);
+    //             System.out.print("Введите строку: ");
+    //             String str = scanner.nextLine();
+    //             char first = str.charAt(0);
+    //             int count = 1;
+        
+    //             StringBuilder res = new StringBuilder();
+    //             for (int i = 1; i < str.length(); i++) {
+    //                 if (first == str.charAt(i)) {
+    //                     count++;
+    //                 } else {
+    //                     if (count > 0)
+    //                         res.append(first).append(count);
+    //                     count = 1;
+    //                     first = str.charAt(i);
+    //                 }
+    //             }
+    //             if (count > 0)
+    //                 res.append(first).append(count);
+    //             else
+    //                 res.append(first);
+    //             System.out.println(res);
+    //         }
+        
 }
+
+
